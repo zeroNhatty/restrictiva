@@ -4,7 +4,7 @@
   "name": "restrictiva",
   "content_scripts":[
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://*.youtube.com/*"],
       "js": ["./content.js"]
     }
   ]
