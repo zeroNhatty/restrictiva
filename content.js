@@ -1,6 +1,4 @@
 console.log("restrictiva has started!");
-setInterval(disableShorts, 6000);
-
 
 function disableShorts() {
     try {
@@ -15,6 +13,24 @@ function disableShorts() {
 
         console.log("All shorts section hidden successfully!");
     } catch (err) {
-        console.log(`ERROR: ${err}`);
+        console.log(`ERROR(disableShorts): ${err}`);
     }
 }
+
+function disableShortsButton() {
+    try {
+        let shortsButton = document.querySelector('.style-scope ytd-guide-entry-renderer');
+
+        if (shortsButton.style.display !== 'none') {
+            shortsButton.style.display = 'none';
+            shortsButton.hidden = true;
+        }
+
+        console.log("Shorts button hidden successfully!");
+    } catch (err) {
+        console.log(`ERROR(disableShortsButton): ${err}`);
+    }
+}
+
+disableShortsButton();
+disableShorts();
