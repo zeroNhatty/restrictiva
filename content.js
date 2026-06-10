@@ -37,7 +37,7 @@ function disableShortsButton() {
     }
 }
 
-// 2 sec delay because we can't hide what we can't see
+// 3 sec delay because we can't hide what we can't see
 setTimeout(() => {
     disableShortsButton();
     disableShorts();
