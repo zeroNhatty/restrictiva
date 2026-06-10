@@ -19,18 +19,26 @@ function disableShorts() {
 
 function disableShortsButton() {
     try {
-        let shortsButton = document.querySelector('.style-scope ytd-guide-entry-renderer');
+        let sideBarItems = document.querySelectorAll('#endpoint.yt-simple-endpoint.style-scope.ytd-guide-entry-renderer');
 
-        if (shortsButton.style.display !== 'none') {
-            shortsButton.style.display = 'none';
-            shortsButton.hidden = true;
-        }
+        sideBarItems.forEach(item => {
 
+            itemTitle = item.getAttribute('title');
+            itemAria = item.getAttribute('aria-label');
+            if (itemTitle == 'Shorts' || itemAria == 'Shorts') {
+                item.style.display = 'none';
+                item.hidden = true;
+                item.disabled = true;
+            }
+        });
         console.log("Shorts button hidden successfully!");
     } catch (err) {
         console.log(`ERROR(disableShortsButton): ${err}`);
     }
 }
 
-disableShortsButton();
-disableShorts();
+// 2 sec delay because we can't hide what we can't see
+setTimeout(() => {
+    disableShortsButton();
+    disableShorts();
+}, 3000);
